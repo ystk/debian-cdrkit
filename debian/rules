@@ -21,8 +21,9 @@ cdr=wodim
 ziso_VERSION = $(shell cat 3rd-party/zisofs_tools/version)
 source_VERSION= $(shell dpkg-parsechangelog | sed -ne '/^Version:/s/^V.*://p')
 
-
-build: build/build-debstamp
+build: build-arch build-indep
+build-arch: build/build-debstamp
+build-indep: build/build-debstamp
 build/build-debstamp:
 #	@if test -f ../cdrkit_$(source_VERSION).tar.gz ; then \
 #		echo "You should not create native packages! Remove ../cdrkit_$(source_VERSION).tar.gz and copy upstream source to .orig.tar.gz" ; \
@@ -41,7 +42,7 @@ clean:
 	dh_testroot
 	-$(MAKE) -C 3rd-party/zisofs_tools distclean
 	-./.clean
-	dh_clean -k
+	dh_clean
 	 # clean up the stuff dh_clean leaves behind
 	-rm -rf debian/build debian/files
 	-rm -f `find . -name "*~"`

@@ -1,3 +1,14 @@
+cdrkit (9:1.1.11-2) unstable; urgency=low
+
+  * Modify build-dependencies to better support kFreeBSD folks. Thanks to
+    Robert Millan for the patch. Closes: #634380.
+  * Fix up lintian warnings:
+    - update standards-version
+    - fix usage of dh_clean to make sure we don't keep debhelper log files
+    - add rules for build-arch and build-indep
+
+ -- Steve McIntyre <93sam@debian.org>  Thu, 21 Jul 2011 12:49:12 +0100
+
 cdrkit (9:1.1.11-1) unstable; urgency=low
 
   * New upstream release.
