@@ -1,3 +1,20 @@
+cdrkit (9:1.1.11-3) unstable; urgency=medium
+
+  * Fix FTBFS on kfreebsd-*. Closes: #754642. kfreebsd-* now includes a
+    <sys/capability.h> which is not compatible with the same file on
+    linux, and nor does it imply -lcap will work. Fix the detection code
+    to cope with this.
+
+ -- Steve McIntyre <93sam@debian.org>  Tue, 22 Jul 2014 00:56:34 +0100
+
+cdrkit (9:1.1.11-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * geteltorito.pl: update to version 0.5, fixing the bug that prevent it
+    to work with hdd images (Closes: #648935, #611784)
+
+ -- Stefano Zacchiroli <zack@debian.org>  Wed, 18 Jun 2014 12:02:31 +0200
+
 cdrkit (9:1.1.11-2) unstable; urgency=low
 
   * Modify build-dependencies to better support kFreeBSD folks. Thanks to
